@@ -5,17 +5,15 @@ angular.module('lydiagapdemo.controllers', [])
     navigator.notification.vibrate();
   };
 
-  if (window.StatusBar) {
-    var statusbar = {};
-    statusbar.isVisible = StatusBar.isVisible;
-    statusbar.toggle = function () {
-      if (this.isVisible) {
-        StatusBar.hide();
-      } else {
-        StatusBar.show();
-      }
-    };
+  var statusbar = {};
+  statusbar.isVisible = StatusBar.isVisible;
+  statusbar.toggle = function () {
+    if (StatusBar.isVisible) {
+      StatusBar.hide();
+    } else {
+      StatusBar.show();
+    }
+  };
 
-    $scope.statusbar = statusbar;
-  }
+  $scope.statusbar = statusbar;
 });
