@@ -8,7 +8,6 @@ angular.module('lydiagapdemo.controllers', [])
   var statusbar = {};
   statusbar.hidden = !StatusBar.isVisible;
   statusbar.toggle = function () {
-    alert('fuck you i triggered');
     if (!statusbar.hidden) {
       statusbar.hidden = true;
       StatusBar.hide();
@@ -17,5 +16,6 @@ angular.module('lydiagapdemo.controllers', [])
       StatusBar.show();
     }
   };
+  $scope.statusbar = statusbar;
 
 });
