@@ -47,7 +47,7 @@ StatusBar.isVisible;</pre>
           <div class="item item-toggle">
             显示状态栏
             <label class="toggle toggle-balanced">
-              <input type="checkbox" ng-checked="statusbar.hidden" ng-model="statusbar.hidden" ng-change="test();">
+              <input type="checkbox" ng-checked="!statusbar.hidden" ng-click="statusbar.toggle()">
                 <div class="track">
                   <div class="handle"></div>
                 </div>

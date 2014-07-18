@@ -6,7 +6,7 @@ angular.module('lydiagapdemo.controllers', [])
   };
 
   var statusbar = {};
-  statusbar.hidden = StatusBar.isVisible;
+  statusbar.hidden = !StatusBar.isVisible;
   statusbar.toggle = function () {
     if (!statusbar.hidden) {
       statusbar.hidden = true;
