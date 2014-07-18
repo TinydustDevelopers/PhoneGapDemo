@@ -6,14 +6,15 @@ angular.module('lydiagapdemo.controllers', [])
   };
 
   var statusbar = {};
-  statusbar.isVisible = StatusBar.isVisible;
+  statusbar.hidden = StatusBar.isVisible;
   statusbar.toggle = function () {
-    if (StatusBar.isVisible) {
+    if (!statusbar.hidden) {
+      statusbar.hidden = true;
       StatusBar.hide();
     } else {
+      statusbar.hidden = false;
       StatusBar.show();
     }
   };
 
-  $scope.statusbar = statusbar;
 });
