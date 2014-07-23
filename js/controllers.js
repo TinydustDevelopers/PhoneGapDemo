@@ -18,4 +18,18 @@ angular.module('lydiagapdemo.controllers', [])
   };
   $scope.statusbar = statusbar;
 
+  $scope.accl = {
+    x: '未获取',
+    y: '未获取',
+    z: '未获取'
+  };
+  $scope.getAccl = function () {
+    navigator.accelerometer.getCurrentAcceleration(function (accl) {
+      $scope.accl = accl;
+    }, function (err) {
+      if (err) {
+        alert(err.msg);
+      }
+    });
+  };
 });
