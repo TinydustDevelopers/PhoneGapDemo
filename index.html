@@ -87,11 +87,7 @@ getCurrentAcceleration(function (accl) {
 
 var watchId =
 navigator.accelerometer.
-watchAcceleration(function (accl) {
-  // accl.x, accl.y, accl.z
-}, function (err) {
-  // output err.msg
-});
+watchAcceleration(fn, fn);
 
 navigator.accelerometer.
 clearWatch(watchId);
