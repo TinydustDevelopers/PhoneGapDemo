@@ -78,24 +78,23 @@
           </div>
           <div class="item item-wrap">
             <pre>
-  navigator.accelerometer.getCurrentAcceleration(function (accl) {
-    console.log(accl.x);
-    console.log(accl.y);
-    console.log(accl.z);
-  }, function (err) {
-    console.err(err.msg);
-  });
+navigator.accelerometer.
+    getCurrentAcceleration(function (accl) {
+      // do with accl.x, accl.y, accl.z
+    }, function (err) {
+      // output err.msg
+    });
 
-  var watchId = navigator.accelerometer.watchAcceleration(function (accl) {
-    console.log(accl.x);
-    console.log(accl.y);
-    console.log(accl.z);
-    console.log(accl.timestamp);
-  }, function (err) {
-    console.log(err.msg);
-  });
+var watchId =
+navigator.accelerometer.
+    watchAcceleration(function (accl) {
+      // do with accl.x, accl.y, accl.z
+    }, function (err) {
+      // output err.msg
+    });
 
-  navigator.accelerometer.clearWatch(watchId);
+navigator.accelerometer.
+    clearWatch(watchId);
             </pre>
           </div>
           <div class="item item-wrap">
