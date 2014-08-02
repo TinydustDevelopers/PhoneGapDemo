@@ -1,16 +1,16 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  var statusbar = {};
-  var accelerometer = {};
-
-  $scope.accl = {
-    x: '未获取',
-    y: '未获取',
-    z: '未获取'
-  };
-
   document.addEventListener('deviceready', function () {
+    var statusbar = {};
+    var accelerometer = {};
+
+    $scope.accl = {
+      x: '未获取',
+      y: '未获取',
+      z: '未获取'
+    };
+
     $scope.vibrate = function () {
       navigator.notification.vibrate();
     };
