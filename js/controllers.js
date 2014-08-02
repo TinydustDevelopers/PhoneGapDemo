@@ -3,7 +3,7 @@ angular.module('lydiagapdemo.controllers', [])
 .controller('homeCtrl', function ($scope) {
   var statusbar = {};
   var accelerometer = {};
-  
+
   $scope.accl = {
     x: '未获取',
     y: '未获取',
@@ -36,10 +36,7 @@ angular.module('lydiagapdemo.controllers', [])
         $scope.accl.x = accl.x;
         $scope.accl.y = accl.y;
         $scope.accl.z = accl.z;
-
-        console.log('after x: ' + $scope.accl.x);
-        console.log('y: ' + $scope.accl.y);
-        console.log('z: ' + $scope.accl.z);
+        $scope.$apply();
       }, function (err) {
         console.log(err.message);
       });
