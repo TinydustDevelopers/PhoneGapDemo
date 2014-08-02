@@ -1,0 +1,11 @@
+{
+  "name": "PhoneGap Demo",
+  "description": "这是一个用来向开发者展示LydiaBox是如何兼容PhoneGap API的demo，持续更新中。",
+  "icons": {
+    "128": "http://lydia.b0.upaiyun.com/images/1407001318444.png",
+  },
+  "developer": {
+    "name": "PortWatcher",
+    "url": "http://pwhack.me"
+  }
+}
