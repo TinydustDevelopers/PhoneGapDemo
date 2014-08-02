@@ -27,7 +27,7 @@ angular.module('lydiagapdemo.controllers', [])
       y: '未获取',
       z: '未获取'
     };
-    
+
     var accelerometer = {};
 
     accelerometer.listening = false;
@@ -35,11 +35,9 @@ angular.module('lydiagapdemo.controllers', [])
     accelerometer.enable = function () {
       console.log('enable');
       accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
-        console.log('success callback called.');
-        console.log('x:' + accl.x);
-        console.log('y:' + accl.y);
-        console.log('z:' + accl.z);
-        $scope.accl = accl;
+        $scope.accl.x = accl.x;
+        $scope.accl.y = accl.y;
+        $scope.accl.z = accl.z;
       }, function (err) {
         console.log(err.message);
       });
