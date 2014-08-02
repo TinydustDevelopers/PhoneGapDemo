@@ -1,12 +1,19 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  // document.addEventListener('deviceready', function () {
+  var statusbar = {};
+  var accelerometer = {};
+  
+  $scope.accl = {
+    x: '未获取',
+    y: '未获取',
+    z: '未获取'
+  };
+
+  document.addEventListener('deviceready', function () {
     $scope.vibrate = function () {
       navigator.notification.vibrate();
     };
-
-    var statusbar = {};
 
     statusbar.hidden = !StatusBar.isVisible;
 
@@ -21,14 +28,6 @@ angular.module('lydiagapdemo.controllers', [])
 
     };
     $scope.statusbar = statusbar;
-
-    $scope.accl = {
-      x: '未获取',
-      y: '未获取',
-      z: '未获取'
-    };
-
-    var accelerometer = {};
 
     accelerometer.listening = false;
 
@@ -61,5 +60,5 @@ angular.module('lydiagapdemo.controllers', [])
     };
 
     $scope.accelerometer = accelerometer;
-  // });
+  });
 });
