@@ -29,6 +29,7 @@ angular.module('lydiagapdemo.controllers', [])
     accelerometer.enable = function () {
       console.log('enable');
       accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
+        console.log('success callback called.');
         $scope.accl = accl;
       }, function (err) {
         console.log(err.message);
