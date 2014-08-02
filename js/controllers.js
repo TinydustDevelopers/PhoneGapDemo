@@ -1,7 +1,7 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  // document.addEventListener('deviceready', function () {
+  document.addEventListener('deviceready', function () {
     $scope.vibrate = function () {
       navigator.notification.vibrate();
     };
@@ -57,5 +57,5 @@ angular.module('lydiagapdemo.controllers', [])
     };
 
     $scope.accelerometer = accelerometer;
-  // });
+  });
 });
