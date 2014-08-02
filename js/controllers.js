@@ -29,9 +29,9 @@ angular.module('lydiagapdemo.controllers', [])
     accelerometer.enable = function () {
       console.log('enable');
       accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
-        accelerometer.accl = accl;
+        $scope.accl = accl;
       }, function (err) {
-        console.log(err.msg);
+        console.log(err.message);
       });
     };
 
@@ -50,7 +50,7 @@ angular.module('lydiagapdemo.controllers', [])
       }
     };
 
-    accelerometer.accl = {
+    $scope.accl = {
       x: '未获取',
       y: '未获取',
       z: '未获取'
