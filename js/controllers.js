@@ -33,18 +33,20 @@ angular.module('lydiagapdemo.controllers', [])
     accelerometer.listening = false;
 
     accelerometer.enable = function () {
-      console.log('enable');
       accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
         $scope.accl.x = accl.x;
         $scope.accl.y = accl.y;
         $scope.accl.z = accl.z;
+
+        console.log('after x: ' + $scope.accl.x);
+        console.log('y: ' + $scope.accl.y);
+        console.log('z: ' + $scope.accl.z);
       }, function (err) {
         console.log(err.message);
       });
     };
 
     accelerometer.disable = function () {
-      console.log('disable');
       navigator.accelerometer.clearWatch(accelerometer.watchId);
     };
 
