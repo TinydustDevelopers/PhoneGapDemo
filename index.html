@@ -84,24 +84,21 @@ getCurrentAcceleration(function (accl) {
 }, function (err) {
   // output err.msg
 });
-
-var watchId =
-navigator.accelerometer.
-watchAcceleration(fn, fn);
-
-navigator.accelerometer.
-clearWatch(watchId);
             </pre>
           </div>
           <div class="item item-wrap">
-            x = {{accl.x}}<br>
-            y = {{accl.y}}<br>
-            z = {{accl.z}}
+            x = {{accelerometer.accl.x}}<br>
+            y = {{accelerometer.accl.y}}<br>
+            z = {{accelerometer.accl.z}}
           </div>
-          <div class="item item-button">
-            <div class="button button-positive button-block" ng-click="getAccl()">
-              获取当前设备加速度
-            </div>
+          <div class="item item-toggle">
+            监听加速度
+            <label class="toggle toggle-balanced">
+              <input type="checkbox" ng-checked="accelerometer.listening" ng-click="accelerometer.toggle()">
+                <div class="track">
+                  <div class="handle"></div>
+                </div>
+            </label>
           </div>
         </div>
       </ion-content>

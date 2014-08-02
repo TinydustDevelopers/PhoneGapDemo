@@ -7,7 +7,9 @@ angular.module('lydiagapdemo.controllers', [])
     };
 
     var statusbar = {};
+
     statusbar.hidden = !StatusBar.isVisible;
+
     statusbar.toggle = function () {
       if (!statusbar.hidden) {
         statusbar.hidden = true;
@@ -16,22 +18,42 @@ angular.module('lydiagapdemo.controllers', [])
         statusbar.hidden = false;
         StatusBar.show();
       }
+
     };
     $scope.statusbar = statusbar;
 
-    $scope.accl = {
+    var accelerometer = {};
+
+    accelerometer.listening = false;
+
+    accelerometer.enable = function () {
+      accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
+        accelerometer.accl = accl;
+      }, function (err) {
+        console.log(err.msg);
+      });
+    };
+
+    accelerometer.disable = function () {
+      navigator.accelerometer.clearWatch(accelerometer.watchId);
+    };
+
+    accelerometer.toggle = function () {
+      if (accelerometer.listening) {
+        accelerometer.disable();
+        accelerometer.listening = false;
+      } else {
+        accelerometer.enable();
+        accelerometer.listening = true;
+      }
+    };
+
+    accelerometer.accl = {
       x: '未获取',
       y: '未获取',
       z: '未获取'
     };
-    $scope.getAccl = function () {
-      navigator.accelerometer.getCurrentAcceleration(function (accl) {
-        $scope.accl = accl;
-      }, function (err) {
-        if (err) {
-          alert(err.msg);
-        }
-      });
-    };
+
+    $scope.accelerometer = accelerometer;
   });
 });
