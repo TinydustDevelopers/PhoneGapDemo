@@ -1,7 +1,7 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  document.addEventListener('deviceready', function () {
+  // document.addEventListener('deviceready', function () {
     $scope.vibrate = function () {
       navigator.notification.vibrate();
     };
@@ -27,6 +27,7 @@ angular.module('lydiagapdemo.controllers', [])
     accelerometer.listening = false;
 
     accelerometer.enable = function () {
+      console.log('enable');
       accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
         accelerometer.accl = accl;
       }, function (err) {
@@ -35,16 +36,17 @@ angular.module('lydiagapdemo.controllers', [])
     };
 
     accelerometer.disable = function () {
+      console.log('disable');
       navigator.accelerometer.clearWatch(accelerometer.watchId);
     };
 
     accelerometer.toggle = function () {
       if (accelerometer.listening) {
-        accelerometer.disable();
         accelerometer.listening = false;
+        accelerometer.disable();
       } else {
-        accelerometer.enable();
         accelerometer.listening = true;
+        accelerometer.enable();
       }
     };
 
@@ -55,5 +57,5 @@ angular.module('lydiagapdemo.controllers', [])
     };
 
     $scope.accelerometer = accelerometer;
-  });
+  // });
 });
