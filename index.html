@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html manifest="">
+<html manifest="lydiagapdemo.appcache">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -102,6 +102,34 @@ watchAcceleration(function (accl) {
                   <div class="handle"></div>
                 </div>
             </label>
+          </div>
+        </div>
+
+        <div class="card list">
+          <div class="item item-divider">
+            Social Sharing
+          </div>
+          <div class="item item-wrap">
+            <pre>
+window.plugins.socialsharing.shareViaWeChat();
+window.plugins.socialsharing.shareViaWeChatTimeLine();
+window.plugins.socialsharing.shareViaWeibo();
+window.plugins.socialsharing.shareCurrentPage();
+            </pre>
+          </div>
+          <div class="item">
+            <div class="button button-balanced button-block" ng-click="social.shareWechat()">
+              分享到微信好友
+            </div>
+            <div class="button button-outline button-balanced button-block" ng-click="social.shareTimeLine()">
+              分享到微信朋友圈
+            </div>
+            <div class="button button-energized button-block" ng-click="social.shareWeibo()">
+              分享到微博
+            </div>
+            <div class="button button-outline button-positive button-block" ng-click="social.shareThis()">
+              分享当前页
+            </div>
           </div>
         </div>
       </ion-content>
