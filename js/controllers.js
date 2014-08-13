@@ -1,10 +1,6 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  if (!navigator.accelerometer) {
-    alert('请使用最新版的LydiaBox，并使用非试用模式以获得完整的功能');
-  }
-
   document.addEventListener('deviceready', function () {
     var statusbar = {};
     var accelerometer = {};
