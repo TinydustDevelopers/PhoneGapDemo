@@ -2,7 +2,6 @@ angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
   document.addEventListener('deviceready', function () {
-    var statusbar = {};
     var accelerometer = {};
 
     $scope.accl = {
@@ -14,20 +13,6 @@ angular.module('lydiagapdemo.controllers', [])
     $scope.vibrate = function () {
       navigator.notification.vibrate();
     };
-
-    statusbar.hidden = !StatusBar.isVisible;
-
-    statusbar.toggle = function () {
-      if (!statusbar.hidden) {
-        statusbar.hidden = true;
-        StatusBar.hide();
-      } else {
-        statusbar.hidden = false;
-        StatusBar.show();
-      }
-
-    };
-    $scope.statusbar = statusbar;
 
     accelerometer.listening = false;
 
