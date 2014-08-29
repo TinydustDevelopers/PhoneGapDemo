@@ -78,15 +78,14 @@ angular.module('lydiagapdemo.controllers', [])
     $scope.social = social;
 
     $scope.notifyMe = function () {
-      if (!(Notification in window)) {
+      if (!("Notification" in window)) {
         alert('请使用1.0或以上版本来打开此web app以获得消息通知功能');
       }
 
       Notification.requestPermission(function (status) {
         if (status === 'granted') {
           var notification = new Notification('Hi there!', {
-            icon: 'http://cdn.lydiabox.com/images/1407001318444.png',
-            body: 'I\'m LydiaBox'
+            icon: 'http://cdn.lydiabox.com/images/1407001318444.png'
           });
 
           setTimeout(function () {
