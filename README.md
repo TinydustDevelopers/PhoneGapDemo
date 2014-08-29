@@ -5,5 +5,6 @@
 - vibration
 - accelerometer
 - social sharing
+- Web Notification
 
-For more APIs provided by web app, see the LydiaBox developer center.
+For more APIs provided by [LydiaBox](http://lydiabox.com), see the [Documents](http://wiki.lydiabox.com).
