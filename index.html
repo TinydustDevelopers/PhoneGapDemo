@@ -31,7 +31,8 @@
       <ion-content ng-controller="homeCtrl">
         <div class="card">
           <div class="item item-text-wrap">
-            这是一个用来演示LydiaBox是如何支持PhoneGap API的简单Web App
+            这是一个用来演示LydiaBox是如何支持PhoneGap API的简单Web App<br>
+            详细文档请参考<pre>wiki.lydiabox.com</pre>
           </div>
         </div>
 
@@ -108,6 +109,22 @@ window.plugins.socialsharing.shareCurrentPage();
             </div>
             <div class="button button-outline button-positive button-block" ng-click="social.shareThis()">
               分享当前页
+            </div>
+          </div>
+        </div>
+
+        <div class="card list">
+          <div class="item item-divider">
+            Notification
+          </div>
+          <div class="item item-wrap">
+            <pre>
+              var notification = new Notification('Hi there!');
+            </pre>
+          </div>
+          <div class="item">
+            <div class="button" ng-click="notifyMe()">
+              发送一条消息
             </div>
           </div>
         </div>
