@@ -32,7 +32,7 @@
         <div class="card">
           <div class="item item-text-wrap">
             这是一个用来演示LydiaBox是如何支持PhoneGap API的简单Web App<br>
-            详细文档请参考<pre>wiki.lydiabox.com</pre>
+            详细文档请参考wiki.lydiabox.com
           </div>
         </div>
 
@@ -41,9 +41,7 @@
             Vibration
           </div>
           <div class="item item-wrap">
-            <pre>
-  navigator.notification.vibrate();
-            </pre>
+            <p>兼容 PhoneGap 振动API。</p>
           </div>
           <div class="item item-button">
             <div class="button button-assertive button-block" ng-click="vibrate()">
@@ -57,17 +55,7 @@
             Device-Motion (Accelerometer)
           </div>
           <div class="item item-wrap">
-            <pre>
-navigator.accelerometer.
-watchAcceleration(function (accl) {
-  // accl.x, accl.y, accl.z
-  // accl.timestamp
-}, function (err) {
-  // output err.message
-}, {
-  frequency: 1000 //milseconds
-});
-            </pre>
+            <p>兼容 PhoneGap 加速度API。</p>
           </div>
           <div class="item item-wrap">
             x = {{accl.x}}<br>
@@ -90,12 +78,7 @@ watchAcceleration(function (accl) {
             Social Sharing
           </div>
           <div class="item item-wrap">
-            <pre>
-window.plugins.socialsharing.shareViaWeChat();
-window.plugins.socialsharing.shareViaWeChatTimeLine();
-window.plugins.socialsharing.shareViaWeibo();
-window.plugins.socialsharing.shareCurrentPage();
-            </pre>
+            <p>直接调用Native app的分享，从此以后，不用再提示用户点击右上角分享了。</p>
           </div>
           <div class="item">
             <div class="button button-balanced button-block" ng-click="social.shareWechat()">
@@ -118,13 +101,28 @@ window.plugins.socialsharing.shareCurrentPage();
             Notification
           </div>
           <div class="item item-wrap">
-            <pre>
-var notification = new Notification('Hi there!');
-            </pre>
+            <p>兼容W3C Web Notification标准。</p>
           </div>
           <div class="item">
             <div class="button" ng-click="notifyMe()">
               发送一条消息
+            </div>
+          </div>
+        </div>
+
+        <div class="card list">
+          <div class="item item-divider">
+            Camera
+          </div>
+          <div class="item item-wrap">
+            <p>部分兼容 PhoneGap Camera API，出于安全性和隐私的考虑，移除了部分特性。</p>
+          </div>
+          <div class="item item-wrap">
+            <img ng-src="" />
+          </div>
+          <div class="item">
+            <div class="button" ng-click="takePhoto()">
+              Take a Photo
             </div>
           </div>
         </div>

@@ -2,6 +2,8 @@ angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
   document.addEventListener('deviceready', function () {
+    $scope.data = {};
+
     var accelerometer = {};
 
     $scope.accl = {
@@ -79,7 +81,7 @@ angular.module('lydiagapdemo.controllers', [])
 
     $scope.notifyMe = function () {
       if (!("Notification" in window)) {
-        alert('请使用1.0或以上版本来打开此web app以获得消息通知功能');
+        return alert('请使用1.0或以上版本来打开此web app以获得消息通知功能');
       }
 
       Notification.requestPermission(function (status) {
@@ -94,5 +96,19 @@ angular.module('lydiagapdemo.controllers', [])
         }
       });
     };
+
+    $scope.takePhoto = function () {
+      if (!navigator.camera) {
+        return alert('请使用1.1或以上版本来打开此web app以获得拍照功能');
+      }
+
+      navigator.camera.getPicture(function (data) {
+        $scope.data.imageData = 'data:image/jpeg;base64,' + data;
+      }, function (err) {
+        alert(err.message);
+      }, {
+        saveToPhotoAlbum: false
+      });
+    }
   });
 });
