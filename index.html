@@ -40,8 +40,8 @@
           <div class="item item-divider">
             Vibration
           </div>
-          <div class="item item-wrap">
-            <p>兼容 PhoneGap 振动API。</p>
+          <div class="item item-text-wrap">
+            兼容 PhoneGap 振动API。
           </div>
           <div class="item item-button">
             <div class="button button-assertive button-block" ng-click="vibrate()">
@@ -54,8 +54,8 @@
           <div class="item item-divider">
             Device-Motion (Accelerometer)
           </div>
-          <div class="item item-wrap">
-            <p>兼容 PhoneGap 加速度API。</p>
+          <div class="item item-text-wrap">
+            兼容 PhoneGap 加速度API。
           </div>
           <div class="item item-wrap">
             x = {{accl.x}}<br>
@@ -77,8 +77,8 @@
           <div class="item item-divider">
             Social Sharing
           </div>
-          <div class="item item-wrap">
-            <p>直接调用Native app的分享，从此以后，不用再提示用户点击右上角分享了。</p>
+          <div class="item item-text-wrap">
+            直接调用Native app的分享，从此以后，不用再提示用户点击右上角分享了。
           </div>
           <div class="item">
             <div class="button button-balanced button-block" ng-click="social.shareWechat()">
@@ -100,11 +100,11 @@
           <div class="item item-divider">
             Notification
           </div>
-          <div class="item item-wrap">
-            <p>兼容W3C Web Notification标准。</p>
+          <div class="item item-text-wrap">
+            兼容W3C Web Notification标准。
           </div>
           <div class="item">
-            <div class="button" ng-click="notifyMe()">
+            <div class="button button-block" ng-click="notifyMe()">
               发送一条消息
             </div>
           </div>
@@ -114,15 +114,29 @@
           <div class="item item-divider">
             Camera
           </div>
-          <div class="item item-wrap">
-            <p>部分兼容 PhoneGap Camera API，出于安全性和隐私的考虑，移除了部分特性。</p>
+          <div class="item item-text-wrap">
+            部分兼容 PhoneGap Camera API，出于安全性和隐私的考虑，移除了部分特性。
           </div>
           <div class="item item-wrap">
-            <img ng-src="" />
+            <img ng-src="{{data.imageData}}" style="width: 100%;" />
           </div>
           <div class="item">
-            <div class="button" ng-click="takePhoto()">
-              Take a Photo
+            <div class="button button-block" ng-click="takePhoto()">
+              拍照
+            </div>
+          </div>
+        </div>
+
+        <div class="card list">
+          <div class="item item-divider">
+            window.open
+          </div>
+          <div class="item item-text-wrap">
+            通过 window.open 可以打开系统自带的浏览器，传递URL Scheme或者发起intent。
+          </div>
+          <div class="item">
+            <div class="button button-block" ng-click="openPage()">
+              打开链接
             </div>
           </div>
         </div>

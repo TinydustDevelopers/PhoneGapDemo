@@ -1,9 +1,10 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  document.addEventListener('deviceready', function () {
-    $scope.data = {};
+  $scope.data = {};
+  $scope.data.imageData = 'http://www.gemologyproject.com/wiki/images/5/5f/Placeholder.jpg';
 
+  document.addEventListener('deviceready', function () {
     var accelerometer = {};
 
     $scope.accl = {
@@ -104,11 +105,16 @@ angular.module('lydiagapdemo.controllers', [])
 
       navigator.camera.getPicture(function (data) {
         $scope.data.imageData = 'data:image/jpeg;base64,' + data;
+        $scope.$apply();
       }, function (err) {
-        alert(err.message);
+        console.log(err.message);
       }, {
         saveToPhotoAlbum: false
       });
-    }
+    };
+
+    $scope.openPage = function () {
+      window.open('http://lydiabox.com');
+    };
   });
 });
