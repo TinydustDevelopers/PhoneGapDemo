@@ -1,120 +1,57 @@
 angular.module('lydiagapdemo.controllers', [])
 
 .controller('homeCtrl', function ($scope) {
-  $scope.data = {};
-  $scope.data.imageData = 'http://www.gemologyproject.com/wiki/images/5/5f/Placeholder.jpg';
+  $scope.vibrate = function () {
+    navigator.vibrate();
+  };
 
-  document.addEventListener('deviceready', function () {
-    var accelerometer = {};
+  var social = {};
 
-    $scope.accl = {
-      x: '未获取',
-      y: '未获取',
-      z: '未获取'
-    };
+  social.shareWechat = function () {
+    window.plugins.socialsharing.shareViaWeChat('告诉你一个秘密', 'Hello, world', location.href, function () {
+      console.log('分享成功');
+    }, function (err) {
+      console.log(err.message);
+    });
+  };
 
-    $scope.vibrate = function () {
-      navigator.notification.vibrate();
-    };
+  social.shareTimeLine = function () {
+    window.plugins.socialsharing.shareViaWeChatTimeLine('我特么也能击败全国99%的人', '就是title么，谁不会', location.href, function () {
+      console.log('分享成功');
+    }, function (err) {
+      console.log(err.message);
+    });
+  };
 
-    accelerometer.listening = false;
+  social.shareWeibo = function () {
+    window.plugins.socialsharing.shareViaWeibo('微博标题', '微博内容', location.href, function () {
+      console.log('分享成功');
+    }, function (err) {
+      console.log(err.message);
+    });
+  };
 
-    accelerometer.enable = function () {
-      accelerometer.watchId = navigator.accelerometer.watchAcceleration(function (accl) {
-        $scope.accl.x = accl.x;
-        $scope.accl.y = accl.y;
-        $scope.accl.z = accl.z;
-        $scope.$apply();
-      }, function (err) {
-        console.log(err.message);
-        accelerometer.listening = false;
-        accelerometer.disable();
-      });
-    };
+  social.shareThis = function () {
+    window.plugins.socialsharing.shareCurrentPage();
+  };
 
-    accelerometer.disable = function () {
-      navigator.accelerometer.clearWatch(accelerometer.watchId);
-    };
+  $scope.social = social;
 
-    accelerometer.toggle = function () {
-      if (accelerometer.listening) {
-        accelerometer.listening = false;
-        accelerometer.disable();
-      } else {
-        accelerometer.listening = true;
-        accelerometer.enable();
+  $scope.notifyMe = function () {
+    if (!("Notification" in window)) {
+      return alert('请使用1.0或以上版本来打开此web app以获得消息通知功能');
+    }
+
+    Notification.requestPermission(function (status) {
+      if (status === 'granted') {
+        var notification = new Notification('Hi there!', {
+          icon: 'http://cdn.lydiabox.com/images/1407001318444.png'
+        });
+
+        setTimeout(function () {
+          notification.close();
+        }, 1000);
       }
-    };
-
-    $scope.accelerometer = accelerometer;
-
-    var social = {};
-
-    social.shareWechat = function () {
-      window.plugins.socialsharing.shareViaWeChat('告诉你一个秘密', 'Hello, world', location.href, function () {
-        console.log('分享成功');
-      }, function (err) {
-        console.log(err.message);
-      });
-    };
-
-    social.shareTimeLine = function () {
-      window.plugins.socialsharing.shareViaWeChatTimeLine('我特么也能击败全国99%的人', '就是title么，谁不会', location.href, function () {
-        console.log('分享成功');
-      }, function (err) {
-        console.log(err.message);
-      });
-    };
-
-    social.shareWeibo = function () {
-      window.plugins.socialsharing.shareViaWeibo('微博标题', '微博内容', location.href, function () {
-        console.log('分享成功');
-      }, function (err) {
-        console.log(err.message);
-      });
-    };
-
-    social.shareThis = function () {
-      window.plugins.socialsharing.shareCurrentPage();
-    };
-
-    $scope.social = social;
-
-    $scope.notifyMe = function () {
-      if (!("Notification" in window)) {
-        return alert('请使用1.0或以上版本来打开此web app以获得消息通知功能');
-      }
-
-      Notification.requestPermission(function (status) {
-        if (status === 'granted') {
-          var notification = new Notification('Hi there!', {
-            icon: 'http://cdn.lydiabox.com/images/1407001318444.png'
-          });
-
-          setTimeout(function () {
-            notification.close();
-          }, 2000);
-        }
-      });
-    };
-
-    $scope.takePhoto = function () {
-      if (!navigator.camera) {
-        return alert('请使用1.1或以上版本来打开此web app以获得拍照功能');
-      }
-
-      navigator.camera.getPicture(function (data) {
-        $scope.data.imageData = 'data:image/jpeg;base64,' + data;
-        $scope.$apply();
-      }, function (err) {
-        console.log(err.message);
-      }, {
-        saveToPhotoAlbum: false
-      });
-    };
-
-    $scope.openPage = function () {
-      window.open('http://lydiabox.com');
-    };
-  });
+    });
+  };
 });

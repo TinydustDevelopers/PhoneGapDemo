@@ -52,33 +52,10 @@
 
         <div class="card list">
           <div class="item item-divider">
-            Device-Motion (Accelerometer)
-          </div>
-          <div class="item item-text-wrap">
-            兼容 PhoneGap 加速度API。
-          </div>
-          <div class="item item-wrap">
-            x = {{accl.x}}<br>
-            y = {{accl.y}}<br>
-            z = {{accl.z}}
-          </div>
-          <div class="item item-toggle">
-            监听加速度
-            <label class="toggle toggle-balanced">
-              <input type="checkbox" ng-checked="accelerometer.listening" ng-click="accelerometer.toggle()">
-                <div class="track">
-                  <div class="handle"></div>
-                </div>
-            </label>
-          </div>
-        </div>
-
-        <div class="card list">
-          <div class="item item-divider">
             Social Sharing
           </div>
           <div class="item item-text-wrap">
-            直接调用Native app的分享，从此以后，不用再提示用户点击右上角分享了。
+            直接调用 Native 的分享
           </div>
           <div class="item">
             <div class="button button-balanced button-block" ng-click="social.shareWechat()">
@@ -106,37 +83,6 @@
           <div class="item">
             <div class="button button-block" ng-click="notifyMe()">
               发送一条消息
-            </div>
-          </div>
-        </div>
-
-        <div class="card list">
-          <div class="item item-divider">
-            Camera
-          </div>
-          <div class="item item-text-wrap">
-            部分兼容 PhoneGap Camera API，出于安全性和隐私的考虑，移除了部分特性。
-          </div>
-          <div class="item item-wrap">
-            <img ng-src="{{data.imageData}}" style="width: 100%;" />
-          </div>
-          <div class="item">
-            <div class="button button-block" ng-click="takePhoto()">
-              拍照
-            </div>
-          </div>
-        </div>
-
-        <div class="card list">
-          <div class="item item-divider">
-            window.open
-          </div>
-          <div class="item item-text-wrap">
-            通过 window.open 可以打开系统自带的浏览器，传递URL Scheme或者发起intent。
-          </div>
-          <div class="item">
-            <div class="button button-block" ng-click="openPage()">
-              打开链接
             </div>
           </div>
         </div>
